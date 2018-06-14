@@ -17,7 +17,7 @@ namespace ZipWrapper
 
         static void EXTRACT(string[] args)
         {
-            ZipFile
+            
         }
 
         static void CREATE(string[] args)
