@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CLI.cs" />
+    <Compile Include="CompressionLevelParser.cs" />
+    <Compile Include="EncodingParser.cs" />
+    <Compile Include="IParser.cs" />
     <Compile Include="IValidateCLI.cs" />
     <Compile Include="IZipShell.cs" />
     <Compile Include="Program.cs" />
