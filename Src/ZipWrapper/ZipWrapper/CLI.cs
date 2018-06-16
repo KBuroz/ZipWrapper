@@ -35,6 +35,22 @@ namespace ZipWrapper
                             // _zipShell.ExtractToDirectory(args[1], args[2], encoding.Parse(args[3]) );
                         }
                         break;
+                    case "CREATE":
+                        if (args.Length == 3)
+                        {
+                            _zipShell.CreateFromDirectory(args[1], args[2]);
+                        }
+                        else if (args.Length == 5)
+                        {
+                            throw new NotImplementedException("Compression level and additional options are not yet implemented.");
+                            // _zipShell.CreateFromDirectory(args[1], args[2], compression.Parse(args[3]), bool.Parse(args[4]))
+                        }
+                        else if (args.Length == 5)
+                        {
+                            throw new NotImplementedException("Compression level with different encoding is not yet implemented");
+                            //_zipShell.CreateFromDirectory(args[1], args[2], compression.Parse(args[3]), bool.Parse(args[4]), encoding.Parse(args[5]));
+                        }
+                        break;
                     default:
                         Help();
                         break;
