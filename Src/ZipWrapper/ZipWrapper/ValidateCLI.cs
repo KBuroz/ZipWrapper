@@ -26,10 +26,14 @@ namespace ZipWrapper
         /// <returns></returns>
         public bool Validate(string[] args)
         {
-            if(args[0].ToUpper() == "EXTRACT")
+            if (args.Length == 0)
+            {
+                AddError("No arguments were provided.");
+            }
+            else if(args[0].ToUpper() == "EXTRACT")
             {
                 // First signature ExtractToDirectory(string, string)
-                if(args.Length == 2)
+                if(args.Length == 3)
                 {
                     // check if <Zip File> exists
                     if (File.Exists(args[1]) == false)
