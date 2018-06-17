@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ZipWrapper;
 
 namespace ZipWrapper.Tests
 {
@@ -7,8 +8,17 @@ namespace ZipWrapper.Tests
     public class CLITests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Command_Extract_Calls_Extract()
         {
+            // Arrange
+            var zipShell = new MockZipShell_Bare();
+            var cli = new CLI(zipShell);
+
+            // Act
+            cli.ParseCommand(new string[] { "extract", "", "" });
+
+            // Assert
+            Assert.IsTrue(zipShell.ExtractToDirectoryCalled1, "First signature of the extract command was never called");            
         }
     }
 }
