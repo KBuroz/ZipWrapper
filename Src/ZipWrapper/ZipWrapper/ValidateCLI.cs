@@ -12,9 +12,19 @@ namespace ZipWrapper
     /// </summary>
     public class ValidateCLI : IValidateCLI
     {
+        internal IFileSystem fileSystem;
+
+        public ValidateCLI()
+        {
+            fileSystem = new FileSystem();
+        }
+        public ValidateCLI(IFileSystem injectedFileSystem)
+        {
+            fileSystem = injectedFileSystem;
+        }
+
         internal const string _Error_ZipFile_DoesNotExist = "<Zip File> argument does not exist.";
         internal const string _Error_ExtractTo_DoesNotExist = "<Extract To> directory argument does not exist or it's parent does not exist.";
-
 
         bool _validated = true;
         public List<string> Errors { get; private set; }
@@ -36,11 +46,11 @@ namespace ZipWrapper
                 if(args.Length == 3)
                 {
                     // check if <Zip File> exists
-                    if (File.Exists(args[1]) == false)
+                    if (fileSystem.FileExists(args[1]) == false)
                         AddError(_Error_ZipFile_DoesNotExist);
 
                     // check if <Extract To> exists
-                    if (Directory.Exists(args[2]) == false && Directory.GetParent(args[2]).Exists == false)
+                    if (fileSystem.DirectoryExists(args[2]) == false && fileSystem.ParentDirectoryExists(args[2]) == false)
                         AddError(_Error_ExtractTo_DoesNotExist);
                 }
             }

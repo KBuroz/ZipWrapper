@@ -47,7 +47,9 @@
     <Compile Include="CLI.cs" />
     <Compile Include="CompressionLevelParser.cs" />
     <Compile Include="EncodingParser.cs" />
+    <Compile Include="FileSystem.cs" />
     <Compile Include="Help.cs" />
+    <Compile Include="IFileSystem.cs" />
     <Compile Include="IHelp.cs" />
     <Compile Include="IParser.cs" />
     <Compile Include="IValidateCLI.cs" />
