@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ZipWrapper
 {
-    class CLI
+    public class CLI
     {
         IZipShell _zipShell;
 
