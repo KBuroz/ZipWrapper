@@ -20,5 +20,19 @@ namespace ZipWrapper.Tests
             // Assert
             Assert.IsTrue(zipShell.ExtractToDirectoryCalled1, "First signature of the extract command was never called");            
         }
+
+        [TestMethod]
+        public void Command_Create_Calls_Create()
+        {
+            // Arrange
+            var zipShell = new MockZipShell_Bare();
+            var cli = new CLI(zipShell);
+
+            // Act
+            cli.ParseCommand(new string[] { "create", "", "" });
+
+            // Assert
+            Assert.IsTrue(zipShell.CreateFromDirectoryCalled1, "First signature of the create command was never called");
+        }
     }
 }
