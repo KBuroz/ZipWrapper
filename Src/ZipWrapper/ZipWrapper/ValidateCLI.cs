@@ -13,6 +13,9 @@ namespace ZipWrapper
     public class ValidateCLI : IValidateCLI
     {
         internal IFileSystem fileSystem;
+        internal string _Error_ZipFile_DoesNotExist = "<Zip File> argument does not exist.";
+        internal string _Error_ExtractTo_DoesNotExist = "<Extract To> directory argument does not exist or it's parent does not exist.";
+        internal string _Error_NoArgumentsProvided = "No arguments were provided.";
 
         public ValidateCLI()
         {
@@ -22,9 +25,6 @@ namespace ZipWrapper
         {
             fileSystem = injectedFileSystem;
         }
-
-        internal const string _Error_ZipFile_DoesNotExist = "<Zip File> argument does not exist.";
-        internal const string _Error_ExtractTo_DoesNotExist = "<Extract To> directory argument does not exist or it's parent does not exist.";
 
         bool _validated = true;
         public List<string> Errors { get; private set; }
@@ -38,7 +38,7 @@ namespace ZipWrapper
         {
             if (args.Length == 0)
             {
-                AddError("No arguments were provided.");
+                AddError(_Error_NoArgumentsProvided);
             }
             else if(args[0].ToUpper() == "EXTRACT")
             {

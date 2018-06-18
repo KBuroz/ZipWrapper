@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CLITests.cs" />
+    <Compile Include="MockFileSystem.cs" />
     <Compile Include="MockZipShell.cs" />
     <Compile Include="ValidationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
