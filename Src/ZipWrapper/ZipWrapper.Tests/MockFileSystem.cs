@@ -10,6 +10,8 @@
         {
             if (path == BadDirectory)
                 return false;
+            if (path == BadParentDirectory)
+                return false;
 
             return true;
         }
@@ -18,7 +20,6 @@
         {
             if (path == BadFile)
                 return false;
-
             return true;
         }
 
